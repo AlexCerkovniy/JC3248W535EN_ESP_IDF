@@ -20,7 +20,7 @@
 #include "board.h"
 
 #include "lvgl.h"
-#include "esp_lvgl_port.h"
+#include "lv_port.h"
 #include "ui.h"
 
 void app_main(void)

@@ -1,5 +1,6 @@
 #include "ui.h"
 #include "esp_log.h"
+#include "lv_port.h"
 
 #define LOG_TAG "UI"
 
