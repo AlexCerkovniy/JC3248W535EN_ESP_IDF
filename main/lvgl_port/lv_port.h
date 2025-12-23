@@ -39,11 +39,12 @@ typedef struct {
     esp_lcd_panel_io_handle_t io_handle;    /*!< LCD panel IO handle */
     esp_lcd_panel_handle_t panel_handle;    /*!< LCD panel handle */
     lvgl_port_wait_cb draw_wait_cb;
+    lv_color_format_t cf;
 
     uint32_t    buffer_size;    /*!< Size of the buffer for the screen in pixels */
     uint32_t    trans_size;     /*!< Allocated buffer will be in SRAM to move framebuf */
-    uint32_t    hres;           /*!< LCD display horizontal resolution */
-    uint32_t    vres;           /*!< LCD display vertical resolution */
+    int32_t     hres;           /*!< LCD display horizontal resolution */
+    int32_t     vres;           /*!< LCD display vertical resolution */
     lv_display_rotation_t sw_rotate;    /* Panel software rotate_mask */
     struct {
         unsigned int buff_dma: 1;    /*!< Allocated LVGL buffer will be DMA capable */
