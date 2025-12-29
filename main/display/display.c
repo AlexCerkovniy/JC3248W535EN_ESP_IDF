@@ -61,7 +61,6 @@ static esp_err_t backlight_init(void);
 
 /* Конфигурация аппаратной части */
 #define LCD_HOST  SPI2_HOST  // Используемый SPI-хост
-#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (40 * 1000 * 1000)  // Тактовая частота SPI
 #define EXAMPLE_LCD_BK_LIGHT_ON_LEVEL  1  // Уровень активного состояния подсветки
 #define EXAMPLE_LCD_BK_LIGHT_OFF_LEVEL !EXAMPLE_LCD_BK_LIGHT_ON_LEVEL
 
@@ -146,15 +145,14 @@ void bsp_display_init(void){
             .mirror_y = 0, //работает
         },
         .flags = {
-
             .buff_spiram = 1, //Использование холста PSRAM
             .buff_dma = 1,
             .swap_bytes = 1,
             .full_refresh = 1,
             .buff_spiram = 1,
             .sw_rotate = 1, // true: software; false: hardware
-
-        }};
+        }
+    };
 
     ESP_LOGI(TAG, "[APP] Free memory: %" PRIu32 " bytes", esp_get_free_heap_size());
     lvgl_disp = lvgl_port_add_disp(&disp_cfg);
@@ -168,8 +166,7 @@ void bsp_display_init(void){
     lvgl_touch_indev = lvgl_port_add_touch(&touch_cfg);
     ESP_LOGI(TAG, "Touch panel initialized successfully");
 
-
-    lv_display_set_rotation(lvgl_disp, LV_DISP_ROTATION_90); //Is Work
+    //lv_display_set_rotation(lvgl_disp, LV_DISP_ROTATION_90); //Is Work
 
     lvgl_port_unlock();
 }
