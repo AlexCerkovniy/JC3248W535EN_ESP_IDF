@@ -61,7 +61,7 @@ static esp_err_t backlight_init(void);
 
 /* Конфигурация аппаратной части */
 #define LCD_HOST  SPI2_HOST  // Используемый SPI-хост
-#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (20 * 1000 * 1000)  // Тактовая частота SPI
+#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (40 * 1000 * 1000)  // Тактовая частота SPI
 #define EXAMPLE_LCD_BK_LIGHT_ON_LEVEL  1  // Уровень активного состояния подсветки
 #define EXAMPLE_LCD_BK_LIGHT_OFF_LEVEL !EXAMPLE_LCD_BK_LIGHT_ON_LEVEL
 
@@ -277,5 +277,7 @@ static esp_err_t backlight_init(void) {
 
     ESP_ERROR_CHECK(ledc_timer_config(&LCD_backlight_timer));
     ESP_ERROR_CHECK(ledc_channel_config(&LCD_backlight_channel));
+    ESP_ERROR_CHECK(ledc_set_duty(LEDC_LOW_SPEED_MODE, LCD_LEDC_CH, 0));
+    ESP_ERROR_CHECK(ledc_update_duty(LEDC_LOW_SPEED_MODE, LCD_LEDC_CH));
     return ESP_OK;
 }

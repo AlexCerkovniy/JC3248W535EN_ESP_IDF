@@ -19,11 +19,12 @@ static TickType_t last_ui_update_ticks = 0;
 void app_main(void)
 {
     bsp_display_init();
-    bsp_display_set_brightness(100);
 
     ui_init();
 	can_init();
 	obd2_task_start();
+
+	bsp_display_set_brightness(100);
 
 	while (1) {
 		// if (xTaskGetTickCount() - last_ui_update_ticks >= pdMS_TO_TICKS(250)) {
