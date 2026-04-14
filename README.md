@@ -1,5 +1,5 @@
 # esp32_JC3248W535EN_work_exampl_lvgl_axs15231b
-Минимальный рабочий код для JC3248W535EN ESP32S3 с дисплеем axs15231b и portLVGL. ESP-IDF v5.5.0.
-В примере экран заполняется цветом, выводится надпись "Hello world" и кнопка со счетчиком.
-В примере работает програмный поворот экрана, аппаратный повород не поддерживает этот драйвер устройства.
-Код будет полезен начинающим, таким как я.
+
+Minimal working LVGL9 GUI build for developing board JC3248W535EN from Aliexpress based on ESP32S3 AXS15231B. ESP-IDF v5.5.0.
+
+Based on https://github.com/tsebelev/esp32_JC3248W535EN_work_exampl_lvgl_axs15231b
